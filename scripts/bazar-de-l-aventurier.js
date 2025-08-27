@@ -1,0 +1,35 @@
+const currentLocationData = {
+    "location": "BAZAR DE L AVENTURIER",
+    "quests": [
+        {
+            "id": 40,
+            "title": "Au bazar des aventuriers",
+            "description": `Le bazar de l’aventurier est un capharnaüm organisé, où chaque étagère déborde de trésors improbables. Entre les torches de voyage et les cordes usées, on distingue des fioles aux liquides chatoyants, des parchemins roulés, des amulettes ternies et même quelques armes exotiques. L’air est saturé d’odeurs de cuir, de métal et d’épices. Le bois sombre des étagères craque sous le poids de ce bric-à-brac hétéroclite, et un comptoir grinçant attend quiconque désire troquer quelques pièces d’or contre un objet utile… ou inutile. Chaque recoin du bazar invite à fouiller, comme si un secret attendait d’être découvert.`,
+            "image": "",
+            "requirement": null
+        }, 
+        {
+            "id": 41,
+            "title": "Kirout, le protecteur",
+            "mainCharacter": "KIROUT",
+            "description": `La marchande confie que Kirout lui achète toujours des potions défensives, jamais offensives. Il a aussi récemment livré une cargaison de plantes rares pour reconstituer le stock, sans rien demander en retour.`,
+            "image": "",
+            "requirement": null
+        }, 
+        {
+            "id": 42,
+            "title": "Orital, Bourgmestre compréhensif",
+            "mainCharacter": "ORITAL",
+            "description": `La marchande admet qu’Orital a toujours soutenu les petites entreprises, leur octroyant des aides et allégeant leurs taxes. Elle semble nostalgique de son mandat, bien qu’elle reste neutre.`,
+            "image": "",
+            "requirement": null
+        }
+    ]
+}
+document.addEventListener('DOMContentLoaded', () => {
+    // updateLastVisitedLocation(currentLocationData.location)
+    // const randomChapter = getRandomChapter(currentLocationData.quests)
+    const bestChapter = chooseBestChapter(currentLocationData)
+    insertChapter(bestChapter)
+    updateSeenQuestsList(bestChapter.id)
+})

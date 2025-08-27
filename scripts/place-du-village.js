@@ -1,0 +1,41 @@
+const currentLocationData = {
+    "location": "PLACE DU VILLAGE",
+    "quests": [
+        {
+            "id": 20,
+            "title": "La place du village",
+            "mainCharacter": null,
+            "description": `La place du village est un vaste espace pavé aux dalles inégales, polies par des siècles de passages. Quelques grands arbres, aux troncs noueux et aux feuillages généreux, y apportent de l’ombre et une sensation de fraîcheur, tandis que des bancs de pierre invitent les habitants à s’y reposer. Au centre trône un préhaut en bois sculpté, aux colonnes finement ouvragées, servant à la fois de scène pour les annonces, de tribune pour les discours, et de lieu de rassemblement lors des fêtes. Autour, de petites échoppes s’ouvrent directement sur la place, exhalant des odeurs de pain chaud, de cuir ou de houblon. L’endroit respire la vie quotidienne : on y entend les appels des marchands, le rire des enfants courant entre les arbres, et le tintement des marteaux des artisans voisins. C’est le cœur battant du village, à la fois familier et solennel.`,
+            "image": "",
+            "requirement": null
+        }, {
+            "id": 21,
+            "title": "Le bon samaritain",
+            "mainCharacter": "KIROUT",
+            "description": `Kirout aide à réparer un toit après une tempête. Il ne cherche pas la reconnaissance, mais plusieurs villageois parlent de lui comme d’un pilier discret de la communauté, toujours là en cas de crise.`,
+            "image": "",
+            "requirement": null
+        }, {
+            "id": 22,
+            "title": "La star du village",
+            "mainCharacter": "BEDEU",
+            "description": `Sur la place du village, Bedeu traverse le village un tonnelet sous le bras, il salue les villageois et semble apprécié`,
+            "image": "",
+            "requirement": [10]
+        }, {
+            "id": 23,
+            "title": "Les soupçons ont la vie dure",
+            "mainCharacter": "ORITAL",
+            "description": `Un groupe de villageois se dispute à propos d’Orital. Certains le défendent avec ferveur, le décrivant comme juste et cultivé, d'autres le soupçonnent encore. La division qu’il suscite pourrait être son plus grand obstacle.`,
+            "image": "",
+            "requirement": [2]
+        }
+    ]
+}
+document.addEventListener('DOMContentLoaded', () => {
+    // updateLastVisitedLocation(currentLocationData.location)
+    // const randomChapter = getRandomChapter(currentLocationData.quests)
+    const bestChapter = chooseBestChapter(currentLocationData)
+    insertChapter(bestChapter)
+    updateSeenQuestsList(bestChapter.id)
+})
