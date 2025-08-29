@@ -1,3 +1,25 @@
+const BedeuQuests = [3,10,22,32,52]
+const KiroutQuests = [4,21,31,41,51]
+const OritalQuests = [2,12,23,33,42]
+
+const getCharacterPathProgress = () => {
+    const seenQuests = getSeenQuestsList()
+    const BedeuProgress = BedeuQuests.filter(q => seenQuests.includes(q)).length/BedeuQuests.length*100
+    const KiroutProgress = KiroutQuests.filter(q => seenQuests.includes(q)).length/KiroutQuests.length*100
+    const OritalProgress = OritalQuests.filter(q => seenQuests.includes(q)).length/OritalQuests.length*100
+    // console.log({BedeuProgress, KiroutProgress, OritalProgress})
+
+    document.querySelector('.bedeu-progress span').style=`--progress:${Math.round(BedeuProgress)}%`
+    document.querySelector('.kirout-progress span').style=`--progress:${Math.round(KiroutProgress)}%`
+    document.querySelector('.orital-progress span').style=`--progress:${Math.round(OritalProgress)}%`
+
+    return [BedeuProgress, KiroutProgress, OritalProgress].some(p => p === 100)
+}
+
+const enableEndOfGame = (chapterId) => {
+    if(chapterId === 999) window.location = "/la-grande-annonce.html"
+}
+
 const getChapterTPL = () => {
     return document.querySelector('#chapter-tpl').innerHTML
 }
@@ -15,20 +37,21 @@ const chooseBestChapter = currentLocationData => {
 
     const firstQuestHere = !seenQuestsList.includes(currentLocationQuests[0].id)
     if( firstQuestHere ) {
-        console.log('FIRST QUEST')
+        // console.log('FIRST QUEST')
         setLastVisit(currentLocation)
         return currentLocationQuests[0]
     }
 
     const isFinished = currentLocationQuests.every(quest => seenQuestsList.includes(quest.id));
     if( isFinished ) {
-        console.log('FINISHED PLACES')
+        // console.log('FINISHED PLACES')
+        setLastVisit(currentLocation)
         return {
             id: 999,
             title: "C'est calme ici",
-            description: `Il semble que rien de neuf ne se passe ici...
+            description: `Il semble que plus rien de neuf ne se passe ici...
             <br><br>
-            Explorez peut-être les autres lieux du village.`,
+            Explorez les autres lieux du village, vous y apprendrez sûrement d'autres informations.`,
             image: ""
         }
     } 
@@ -36,7 +59,7 @@ const chooseBestChapter = currentLocationData => {
     const lastWasAlreadyHere = currentLocationQuests.some(quest => quest.id === seenQuestsList.at(-1))
     const tooEarlyForNewQuestHere = isLastVisitTooClose(currentLocation)
     if( lastWasAlreadyHere && tooEarlyForNewQuestHere ) {
-        console.log('REPEAT QUEST')
+        // console.log('REPEAT QUEST')
         const lastQuest = currentLocationQuests.find(quest => quest.id === seenQuestsList.at(-1))
         const repeatQuest = {...lastQuest}
         repeatQuest.id = 999
@@ -49,7 +72,7 @@ const chooseBestChapter = currentLocationData => {
     }
 
     const remainingChapters = currentLocationQuests.filter(item => !seenQuestsList.includes(item.id)) 
-    console.log('NEW QUEST')
+    // console.log('NEW QUEST')
     setLastVisit(currentLocation)
     return getRandomChapter(remainingChapters)
 }
@@ -70,7 +93,7 @@ const insertChapter = chapter => {
 // }
 
 const updateSeenQuestsList = questId => {
-    if( questId === 999 ) return;
+    // if( questId === 999 ) return;
     const seenQuestsList = JSON.parse(localStorage.getItem('seenQuestsList')) ?? []
     seenQuestsList.push(questId)
     localStorage.setItem('seenQuestsList', JSON.stringify(seenQuestsList))

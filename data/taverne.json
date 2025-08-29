@@ -1,0 +1,30 @@
+{
+    "quest": [
+        {
+            "id": 10,
+            "title": "La taverne",
+            "description": `La taverne est un refuge chaleureux, aux murs de pierre épaisse et aux poutres de bois noirci par les années. Une grande cheminée crépite au fond de la salle, emplissant l’air d’une odeur de feu de bois et de bière épicée. Des tables robustes, souvent bancales, sont couvertes de chopes mousseuses, de dés éparpillés et de miettes de pain. L’ambiance y est bruyante et vivante : rires, chants à pleins poumons, et le cliquetis régulier des chopes qui s’entrechoquent. Derrière le comptoir, le maître brasseur surveille sa salle d’un œil attentif, prêt à remplir les verres et à calmer les querelles.`,
+            "image": "",
+            "requirement": null
+        },
+        {
+            "id": 11,
+            "title": "Bedeu, le tavernier",
+            "mainCharacter": "BEDEU",
+            "description": `La taverne est animée. Rires, chants et odeurs de bière chaude emplissent l’air.  
+Derrière le comptoir, **Bedeu** vous accueille avec un large sourire. Il vous sert un verre et engage la conversation.  
+Il connaît chaque client par son prénom et semble apprécié de tous.  
+Vous sentez qu’il inspire la confiance.`,
+            "image": "",
+            "requirement": null
+        },
+        {
+            "id": 12,
+            "title": "L'ancien sénateur'",
+            "mainCharacter": "ORITAL",
+            "description": `Orital est assis seul dans un coin, lisant un livre d’histoire. Certains le saluent respectueusement, d’autres détournent les yeux. Il discute avec les joueurs et évoque sa vision du village avec calme et lucidité.`,
+            "image": "",
+            "requirement": [2]
+        }
+    ]
+}

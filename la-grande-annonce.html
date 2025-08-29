@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Au bazar de l'aventurier</title>
+    <title>La grande annonce !</title>
     <script src="scripts/helpers.js"></script>
-    <script src="scripts/bazar-de-l-aventurier.js" defer></script>
+    <script src="scripts/annonce.js" defer></script>
+     
     <style>
         /* latin */
         @font-face {
@@ -21,15 +22,25 @@
     <link href="styles/styles.css"rel="stylesheet" />
 </head>
 <body>
-    <template id="chapter-tpl">
-        <section class="chapter">
-            <h1>{{TITLE}}</h1>
-            <p>{{DESCRIPTION}}</p>
-            <img src="{{IMG}}" alt="{{TITLE}}" />
-        </section>
-    </template>
 
     <main>
+        <section class="chapter chapter--end">
+            <h1>Votre décision est prise ?</h1>
+            <p>
+                Émissaires du trône… Le moment approche. 
+                <br>Vous avez écouté, observé, interrogé. 
+                <br>Vous avez marché dans les rues de Grésombre, partagé ses doutes et ses espoirs. 
+                <br>Désormais, une décision vous incombe : le village attend son nouveau guide. 
+                <br>Allez-vous proclamer votre choix devant tous, et graver ainsi votre jugement dans l’histoire de ces lieux ? 
+                <br>Ou bien souhaitez-vous encore sonder les ombres et les murmures, afin de vous assurer que nul secret ne vous échappe avant l’heure fatidique ?
+            </p>
+            <img src="images/annonce.png" alt="Votre décision est prise ?" />
+            <p>Si vous êtes prêt, proclamez le nouveau Bourgmestre!</p>
+            <button class="annonce-btn">Désigner le nouveau Bourgmestre</button>
+
+            <iframe id="heraut-form" src="https://docs.google.com/forms/d/e/1FAIpQLSc754ZJiG3Z_gSz7PH3GS0-wIWyP_fpKgDvs9KzALFKLQTgFQ/viewform?embedded=true" width="640" height="797" frameborder="0" marginheight="0" marginwidth="0">Chargement…</iframe>
+        
+        </section>
         <aside>
             <h3>Progression</h3>
             <div class="bedeu-progress">
